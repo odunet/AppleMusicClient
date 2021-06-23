@@ -25,7 +25,7 @@ function App() {
         data: album.data.feed.entry,
       });
     });
-  });
+  }, []);
 
   return (
     <>
