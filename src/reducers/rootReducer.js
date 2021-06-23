@@ -1,4 +1,3 @@
-import { searchDataAction } from '../actions';
 import { types } from '../types';
 
 export default function reducer(state, action) {

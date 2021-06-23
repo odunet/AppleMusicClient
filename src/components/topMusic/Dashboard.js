@@ -3,7 +3,7 @@ import { Card, Dash } from '../../styledComponents';
 import { store } from '../../store';
 
 export default function Dashboard() {
-  const { dispatch, state } = useContext(store);
+  const { state } = useContext(store);
 
   return (
     <>

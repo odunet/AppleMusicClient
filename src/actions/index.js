@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-
 //Search data in list
 export const SeachDataAction = (...args) => {
   let pattern = new RegExp(args[1], 'i');

@@ -8,7 +8,7 @@ import { types } from './types';
 
 function App() {
   //Bring in dispatch
-  const { dispatch, state } = useContext(store);
+  const { dispatch } = useContext(store);
 
   //get user data | Music
   useEffect(() => {
@@ -25,7 +25,7 @@ function App() {
         data: album.data.feed.entry,
       });
     });
-  }, []);
+  });
 
   return (
     <>
