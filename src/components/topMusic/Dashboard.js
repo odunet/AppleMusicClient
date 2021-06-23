@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Card, Dash } from '../../styledComponents';
-import { store } from '../../store';
+import { useSelector } from 'react-redux';
 
 export default function Dashboard() {
-  const { state } = useContext(store);
+  const state = useSelector((state) => state);
 
   return (
     <>

@@ -1,7 +1,21 @@
 import { types } from '../types';
 
-export default function reducer(state, action) {
-  switch (action.type) {
+const initialState = {
+  topMusic: [],
+  topAlbum: [],
+  searchMusic: {
+    bool: false,
+    data: [],
+  },
+  searchAlbum: {
+    bool: false,
+    data: [],
+  },
+};
+
+const reduxRootReducer = (state = initialState, action) => {
+  const { type } = action;
+  switch (type) {
     case types.Load_Album:
       return {
         topMusic: state.topMusic,
@@ -39,4 +53,6 @@ export default function reducer(state, action) {
     default:
       return state;
   }
-}
+};
+
+export default reduxRootReducer;

@@ -1,17 +1,18 @@
-import React, { useState, useContext } from 'react';
-import { types } from '../../types';
+import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { Search, IconDiv, SearchDiv } from '../../styledComponents';
-import { store } from '../../store';
-import { SeachDataAction } from '../../actions';
+import { SearchDataAction } from '../../actions';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function SearchBar() {
   let [text, setText] = useState('');
-  const { dispatch, state } = useContext(store);
+  let dispatch = useDispatch();
 
-  const handleClick = (e) => {
-    let searchOptions = SeachDataAction('music', text, state);
-    dispatch({ type: types.Search_Data_Music, data: searchOptions });
+  let state = useSelector((state) => state);
+
+  const handleClick = () => {
+    dispatch(SearchDataAction('music', text, state));
   };
 
   return (

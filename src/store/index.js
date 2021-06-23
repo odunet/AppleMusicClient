@@ -1,7 +1,12 @@
-import React, { useReducer, createContext } from 'react';
-import reducer from '../reducers/rootReducer';
+// Redux imports
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import reduxRootReducer from '../reducers/reduxInitialReducer';
 
-const initialState = {
+// Redux store code
+const middleware = [thunk, logger];
+const initialStateRedux = {
   topMusic: [],
   topAlbum: [],
   searchMusic: {
@@ -13,14 +18,10 @@ const initialState = {
     data: [],
   },
 };
+const reduxStore = createStore(
+  reduxRootReducer,
+  initialStateRedux,
+  applyMiddleware(...middleware)
+);
 
-const store = createContext(initialState);
-
-const { Provider } = store;
-
-const StateProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  return <Provider value={{ state, dispatch }}>{children}</Provider>;
-};
-
-export { store, StateProvider };
+export default reduxStore;
