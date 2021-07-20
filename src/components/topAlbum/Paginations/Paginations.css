@@ -1,0 +1,30 @@
+.standard {
+  background-color: #fff;
+  border-radius: 10px;
+  color: #333;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  height: 80%;
+  width: 10px;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  margin-right: 10px;
+  border: none;
+}
+
+.standard:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.pageNumbers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 10px;
+  width: 80%;
+  margin: auto;
+}

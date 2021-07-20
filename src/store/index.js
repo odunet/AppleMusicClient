@@ -7,10 +7,18 @@ const initialState = {
   searchMusic: {
     bool: false,
     data: [],
+    PAGE_SIZE: 19,
+    CURRENT_PAGE: 1,
+    SKIP: 0,
+    TOTAL_PAGES: 0,
   },
   searchAlbum: {
     bool: false,
     data: [],
+    PAGE_SIZE: 19,
+    CURRENT_PAGE: 1,
+    SKIP: 0,
+    TOTAL_PAGES: 0,
   },
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Dashboard from './Dashboard';
+import { Paginations } from './Paginations';
 import SearchBar from './SearchBar';
 
 export default function AlbumPage() {
@@ -7,6 +8,7 @@ export default function AlbumPage() {
     <>
       <SearchBar />
       <Dashboard />
+      <Paginations />
     </>
   );
 }

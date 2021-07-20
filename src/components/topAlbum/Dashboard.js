@@ -8,12 +8,22 @@ export default function Dashboard() {
   return (
     <Dash>
       {!state.searchAlbum.bool
-        ? state.topAlbum.map((item, index) => (
-            <Card key={index}>{item['im:name']['label']}</Card>
-          ))
-        : state.searchAlbum.data.map((item, index) => (
-            <Card key={index}>{item['im:name']['label']}</Card>
-          ))}
+        ? state.topAlbum.map((item, index) =>
+            state.searchAlbum.PAGE_SIZE + state.searchAlbum.SKIP >= index &&
+            state.searchAlbum.SKIP <= index ? (
+              <Card key={index}>{item['im:name']['label']}</Card>
+            ) : (
+              ''
+            )
+          )
+        : state.searchAlbum.data.map((item, index) =>
+            state.searchAlbum.PAGE_SIZE + state.searchAlbum.SKIP >= index &&
+            state.searchAlbum.SKIP <= index ? (
+              <Card key={index}>{item['im:name']['label']}</Card>
+            ) : (
+              ''
+            )
+          )}
     </Dash>
   );
 }

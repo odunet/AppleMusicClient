@@ -6,4 +6,5 @@ export const types = {
   Load_Album: 'Load_Album',
   Load_Music: 'Load_Music',
   Change_Reminder: 'Change_Reminder',
+  Change_Page: 'Change_Page',
 };

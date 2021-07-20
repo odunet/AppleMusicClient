@@ -1,6 +1,5 @@
 import './App.css';
 import Header from './components/common/Header';
-import { BrowserRouter as Router } from 'react-router-dom';
 import React, { useContext, useEffect } from 'react';
 import { store } from './store';
 import { getData } from './APICalls';
@@ -20,11 +19,13 @@ function App() {
         ([song, album]) => {
           dispatch({
             type: types.Load_Music,
-            data: song.data.feed.entry,
+            data: song.data,
+            totalPages: song.totalPages,
           });
           dispatch({
             type: types.Load_Album,
-            data: album.data.feed.entry,
+            data: album.data,
+            totalPages: album.totalPages,
           });
         }
       );
@@ -34,9 +35,7 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Header />
-      </Router>
+      <Header />
     </>
   );
 }

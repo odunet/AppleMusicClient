@@ -6,7 +6,7 @@ export default function reducer(state, action) {
       return {
         topMusic: state.topMusic,
         topAlbum: [...state.topAlbum, ...action.data],
-        searchAlbum: state.searchAlbum,
+        searchAlbum: { ...state.searchAlbum, TOTAL_PAGES: action.totalPages },
         searchMusic: state.searchMusic,
       };
     case types.Load_Music:
@@ -14,15 +14,23 @@ export default function reducer(state, action) {
         topAlbum: state.topAlbum,
         topMusic: [...state.topMusic, ...action.data],
         searchAlbum: state.searchAlbum,
-        searchMusic: state.searchMusic,
+        searchMusic: { ...state.searchMusic, TOTAL_PAGES: action.totalPages },
       };
     case types.Search_Data_Album:
       return {
         topMusic: state.topMusic,
         topAlbum: state.topAlbum,
+        searchAlbum: { ...state.searchAlbum, bool: true, data: action.data },
+        searchMusic: state.searchMusic,
+      };
+    case types.Change_Page:
+      return {
+        topMusic: state.topMusic,
+        topAlbum: state.topAlbum,
         searchAlbum: {
-          bool: true,
-          data: action.data,
+          ...state.searchAlbum,
+          CURRENT_PAGE: action.data.CURRENT_PAGE,
+          SKIP: action.data.SKIP,
         },
         searchMusic: state.searchMusic,
       };
